@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube No Recommendations",
+  "version": "1.1.0",
+  "description": "Hide YouTube recommendations, lock Shorts scrolling, and stop videos from playing next.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*",
+        "https://youtube.com/*"
+      ],
+      "css": ["filter.css"],
+      "js": ["filter.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*",
+        "https://youtube.com/*"
+      ],
+      "js": ["playback.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
+  ]
+}

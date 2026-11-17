@@ -1,0 +1,86 @@
+/* Keep the masthead, search, and navigation on the Home screen. */
+html[data-ytnr-page="home"] :is(ytd-browse[page-subtype="home"], ytm-browse, ytm-home) {
+  display: none !important;
+}
+
+/* Remove the Shorts feed entry point and the player's related-video controls. */
+[data-ytnr-link="shorts-feed"],
+ytm-pivot-bar-item-renderer:has([data-ytnr-link="shorts-feed"]),
+ytd-guide-entry-renderer:has([data-ytnr-link="shorts-feed"]),
+ytd-mini-guide-entry-renderer:has([data-ytnr-link="shorts-feed"]),
+.html5-video-player :is(
+  .ytp-next-button,
+  .ytp-prev-button,
+  .ytp-autonav-endscreen,
+  .ytp-autonav-endscreen-upnext-container,
+  .ytp-ce-element,
+  .ytp-cards-button,
+  .ytp-cards-teaser,
+  .ytp-cards-container,
+  .ytp-endscreen-content,
+  .ytp-pause-overlay,
+  .ytp-suggestion-set,
+  .ytp-videowall-still
+) {
+  display: none !important;
+}
+
+.html5-video-player :is(button.ytp-autonav-toggle, .ytp-autonav-toggle-button-container) {
+  display: none !important;
+}
+
+/* Apply the video-card filter by default, including before the route is known. */
+html:not([data-ytnr-page="allowed"]) :is(
+  [data-ytnr-link="video"],
+  ytd-watch-flexy #related,
+  ytd-watch-next-secondary-results-renderer,
+  ytm-watch #related,
+  ytm-watch-next-secondary-results-renderer,
+  ytm-single-column-watch-next-results-renderer > :is(.related-items-container, .related-chips-slot-wrapper),
+  ytd-playlist-panel-renderer,
+  ytm-playlist-panel-renderer,
+  ytd-compact-video-renderer,
+  ytd-grid-video-renderer,
+  ytd-playlist-panel-video-renderer,
+  ytd-playlist-video-renderer,
+  ytd-reel-item-renderer,
+  ytd-video-renderer,
+  ytd-rich-grid-media,
+  ytd-rich-grid-slim-media,
+  ytd-shorts-lockup-view-model,
+  yt-lockup-view-model,
+  yt-shorts-lockup-view-model,
+  ytm-compact-video-renderer,
+  ytm-playlist-panel-video-renderer,
+  ytm-playlist-video-renderer,
+  ytm-reel-item-renderer,
+  ytm-shorts-lockup-view-model,
+  ytm-video-with-context-renderer,
+  ytd-rich-shelf-renderer,
+  ytd-reel-shelf-renderer,
+  ytm-reel-shelf-renderer,
+  ytd-rich-item-renderer:has([data-ytnr-link="video"], yt-lockup-view-model, yt-shorts-lockup-view-model),
+  ytd-shorts #navigation-button-up,
+  ytd-shorts #navigation-button-down
+) {
+  display: none !important;
+}
+
+/* Keep the open Short in place while removing the adjacent previews. */
+html[data-ytnr-page="shorts"],
+html[data-ytnr-page="shorts"] body,
+ytd-shorts #shorts-container {
+  overflow: clip !important;
+  overscroll-behavior: none !important;
+}
+
+ytd-shorts #shorts-container,
+html[data-ytnr-page="shorts"] ytm-app .page-container {
+  touch-action: pan-x pinch-zoom !important;
+}
+
+ytd-shorts .reel-video-in-sequence-new:not(:has(ytd-reel-video-renderer)),
+ytd-shorts:has(ytd-reel-video-renderer[is-active]) ytd-reel-video-renderer:not([is-active]) {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
