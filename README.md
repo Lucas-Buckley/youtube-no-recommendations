@@ -1,5 +1,7 @@
 # YouTube No Recommendations
 
+> **Disclaimer:** This extension was completely vibe coded.
+
 A Chrome extension that keeps video links visible in **Subscriptions**, **channel pages**, and **search results**. It hides the Home feed, watch-page recommendations, player suggestions, and video links on other YouTube pages, including History and playlists. You can still open a video directly and use its player.
 
 Shorts stay on the opened clip when you scroll, swipe, or use the navigation keys. On watch pages, the extension switches YouTube Autoplay off and disables the next-video shortcut. A video opened with a playlist link plays on its own.
